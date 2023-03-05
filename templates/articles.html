@@ -1,0 +1,363 @@
+{% extends 'base.html' %}
+{% block title %}Статьи{% endblock %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center py-4">
+        <div class="col-12">
+            <div class="card" id="card-cust">
+                <div class="row">
+                    <img src="{% static 'img/city002.jpg' %}" alt="" class="img-fluid col-4 img-c">
+                    <div class="col-1" id="img-custom">
+
+                    </div>
+                    <div class="col-7">
+                        <div class="row">
+                            <div class="col-1"></div>
+                            <div class="col-10 text-center mt-2" id="name-ar">
+                                <h5>Первые упоминания о Воронеже</h5>
+                            </div>
+                        </div>
+                        <div class="row pt-3 px-3">
+                            В своё время в воронежских историко-краеведческих кругах проходили оживленные дебаты о дате
+                            основания Воронежа...
+                        </div>
+                        <div class="row">
+                            <div class="col-2 offset-8 py-4">
+                                <a href="{% url 'article1_view' %}" class="btn" id="btn-cust">Перейти</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row justify-content-center py-4">
+        <div class="col-12">
+            <div class="card" id="card-cust">
+                <div class="row">
+                    <img src="{% static 'img/kostenki5.png' %}" alt="" class="img-fluid col-4 img-c">
+                    <div class="col-1" id="img-custom">
+
+                    </div>
+                    <div class="col-7">
+                        <div class="row">
+                            <div class="col-2"></div>
+                            <div class="col-4 mt-1 text-center" id="name-ar">
+                                <h5>Костёнки</h5>
+                            </div>
+                        </div>
+                        <div class="row pt-3 px-3">
+                            Государственный археологический музей-заповедник - cооружение, целью которого стала
+                            консервация мест стоянок первобытных людей, расположено на территории одноименного села...
+                        </div>
+                        <div class="row py-4">
+                            <div class="col-2 offset-8 py-4">
+                                {% if key2 == 'Приобрести'%}
+                                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    {{ key2 }}
+                                </button>
+                                
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        
+                                        <div class="modal-body">
+                                        Хотите приобрести эту статью за 60 баллов?
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                                        <form method="post">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="confirm2" value='confirm2'>
+                                            <button type="submit" class="btn btn-primary" name="confirm2" >Подтвердить</button>
+                                        </form>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+
+                                {% else %}
+                                    <a href="{% url 'article2_view' %}" class="btn" id="btn-cust">{{ key2 }}</a>
+                                {% endif %}    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row justify-content-center py-4">
+        <div class="col-12">
+            <div class="card" id="card-cust">
+                <div class="row">
+                    <img src="{% static 'img/dom.jpg' %}" alt="" class="img-fluid col-4 img-c">
+                    <div class="col-1" id="img-custom">
+
+                    </div>
+                    <div class="col-7">
+                        <div class="row">
+                            <div class="col-2"></div>
+                            <div class="col-8 mt-1 text-center" id="name-ar">
+                                <h5>Дом Гардениных</h5>
+                            </div>
+                        </div>
+                        <div class="row pt-3 px-3">
+                            Здание в переулке Фабричный, 10, известное как дом Гардениных – самый старый жилой дом
+                            города.
+                            Он появился в городе в 1735 г.
+                        </div>
+                        <div class="row py-4">
+                            <div class="col-2 offset-8">
+                                {% if key3 == 'Приобрести'%}
+                                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    {{ key3 }}
+                                </button>
+                                
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        
+                                        <div class="modal-body">
+                                        Хотите приобрести эту статью за 40 баллов?
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                                        <form method="post">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="confirm3" value='confirm3'>
+                                            <button type="submit" class="btn btn-primary" name="confirm3">Подтвердить</button>
+                                        </form>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+
+                                {% else %}
+                                    <a href="{% url 'article3_view' %}" class="btn" id="btn-cust">{{ key3 }}</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row justify-content-center py-4">
+        <div class="col-12">
+            <div class="card" id="card-cust">
+                <div class="row">
+                    <img src="{% static 'img/vantit.jpg' %}" alt="" class="img-fluid col-4 img-c">
+                    <div class="col-1" id="img-custom">
+
+                    </div>
+                    <div class="col-7">
+                        <div class="row">
+                            <div class="col-2"></div>
+                            <div class="col-7 mt-1 text-center" id="name-ar">
+                                <h5>Легенды о Вантите</h5>
+                            </div>
+                        </div>
+                        <div class="row pt-3 px-3">
+                            По легендам,
+                            давным-давно в комплексе древних городищ под названием Вантит жило два особенных племени, которые, по одним поверьям, были
+                            богами, по другим — людьми, владевшими магией...
+                        </div>
+                        <div class="row py-4">
+                            <div class="col-2 offset-8">
+                                {% if key4 == 'Приобрести'%}
+                                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    {{ key4 }}
+                                </button>
+                                
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        
+                                        <div class="modal-body">
+                                            Хотите приобрести эту статью за 70 баллов?
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                                        <form method="post">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="confirm4" value='confirm4'>
+                                            <button type="submit" class="btn btn-primary" name="confirm4" >Подтвердить</button>
+                                        </form>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+
+                                {% else %}
+                                    <a href="{% url 'article4_view' %}" class="btn" id="btn-cust">{{ key4 }}</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row justify-content-center py-4">
+        <div class="col-12">
+            <div class="card" id="card-cust">
+                <div class="row">
+                    <img src="{% static 'img/krepost-voronezh.jpg' %}" alt="" class="img-fluid col-4 img-c">
+                    <div class="col-1" id="img-custom">
+
+                    </div>
+                    <div class="col-7">
+                        <div class="row">
+                            <div class="col-2"></div>
+                            <div class="col-8 mt-1 text-center" id="name-ar">
+                                <h5>Тайна имени Воронеж</h5>
+                            </div>
+                        </div>
+                        <div class="row pt-3 px-3">
+                            Загадочный смысл названия родного города волнует воронежских историков и краеведов уже не
+                            один десяток лет. В том, что «Воронеж» — слово славянское,
+                            не сомневаются многие топонимисты. Однако никто не дал достаточно убедительного
+                            доказательства этой гипотезе...
+                        </div>
+                        <div class="row py-4">
+                            <div class="col-2 offset-8">
+                                {% if key5 == 'Приобрести'%}
+                                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    {{ key5 }}
+                                </button>
+                                
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        
+                                        <div class="modal-body">
+                                        Хотите приобрести эту статью за 55 баллов?
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                                        <form method="post">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="confirm5" value='confirm5'>
+                                            <button type="submit" class="btn btn-primary" name="confirm5" >Подтвердить</button>
+                                        </form>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+
+                                {% else %}
+                                    <a href="{% url 'article5_view' %}" class="btn" id="btn-cust">{{ key5 }}</a>
+                                {% endif %}
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row justify-content-center py-4">
+        <div class="col-12">
+            <div class="card" id="card-cust">
+                <div class="row">
+                    <img src="{% static 'img/of_voronezh.svg.png' %}" alt="" class="img-fluid col-4 img-c">
+                    <div class="col-1" id="img-custom">
+
+                    </div>
+                    <div class="col-7">
+                        <div class="row">
+                            <div class="col-2"></div>
+                            <div class="col-6 mt-1 text-center" id="name-ar">
+                                <h5>Герб Воронежа</h5>
+                            </div>
+                        </div>
+                        <div class="row pt-3 px-3">
+                            
+                            Двуглавый орёл в золотом поле был высочайше пожалован городу Воронежу в знак особых заслуг в
+                            становлении и развитии государства российского. В России есть всего лишь несколько городов,
+                            удостоенных такой чести...
+
+                        </div>
+                        <div class="row py-4">
+                            <div class="col-2 offset-8">
+                                {% if key6 == 'Приобрести'%}
+                                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    {{ key6 }}
+                                </button>
+                                
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        
+                                        <div class="modal-body">
+                                        Хотите приобрести эту статью за 40 баллов?
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                                        <form method="post">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="confirm6" value='confirm6'>
+                                            <button type="submit" class="btn btn-primary" name="confirm6" >Подтвердить</button>
+                                        </form>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+
+                                {% else %}
+                                    <a href="{% url 'article6_view' %}" class="btn" id="btn-cust">{{ key6 }}</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row justify-content-center py-4">
+        <div class="col-12">
+            <div class="card" id="card-cust">
+                <div class="row">
+                    <img src="{% static 'img/kat.jpg' %}" alt="" class="img-fluid col-4 img-c">
+                    <div class="col-1" id="img-custom">
+
+                    </div>
+                    <div class="col-7">
+                        <div class="row">
+                            <div class="col-2"></div>
+                            <div class="col-4 mt-1 text-center" id="name-ar">
+                                <h5>Катюша</h5>
+                            </div>
+                        </div>
+                        <div class="row pt-3 px-3">
+                            Долго сохранится в памяти нашего народа грозное оружие Великой Отечественной войны –
+                            реактивные установки, известные под именем «Катюша»...
+                        </div>
+                        <div class="row py-4">
+                            <div class="col-2 offset-8">
+                                <a href="{% url 'article7_view' %}" class="btn" id="btn-cust">Перейти</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

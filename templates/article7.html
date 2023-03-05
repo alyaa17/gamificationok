@@ -1,0 +1,112 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Статьи</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=M+PLUS+Rounded+1c&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alegreya+SC&family=Amatic+SC:wght@700&family=M+PLUS+Rounded+1c&display=swap"
+        rel="stylesheet">
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.js' %}"></script>
+    <link rel="shortcut icon" href="{% static 'img/favicon_io/favicon.ico' %}" type="image/x-icon">
+</head>
+
+<body>
+    <nav class="navbar navbar-top navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand fs-2 ms-15 col-3" id="f1-custom" href="#">Воронеж</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse ms-10 row" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item col">
+                        <a class="nav-link active fs-4" id="f-custom" aria-current="page"
+                            href="{% url 'home' %}">Главная</a>
+                    </li>
+                    <li class="nav-item col">
+                        <a class="nav-link active fs-4" id="f-custom" aria-current="page"
+                            href="{% url 'history1_view' %}">История</a>
+                    </li>
+                    <li class="nav-item col">
+                        <a class="nav-link active fs-4" id="f-custom" aria-current="page"
+                            href="{% url 'articles_view' %}">Статьи</a>
+                    </li>
+
+
+                    <div class="col">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="ak">
+                            <li class="nav-item dropdown">
+                                {% if user.is_authenticated %}
+                                <a class="nav-link dropdown-toggle me-5 fs-4" href="#" id="f-custom navbarDropdown"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ user.username }}
+                                </a>
+                                {% else %}
+                                <a class=" nav-link fs-4 dropdown-toggle" href="#" id="f-custom navbarDropdown"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">Аккаунт</a>
+                                {% endif %}
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    {% if user.is_authenticated %}
+                                    <li>
+                                        <a class="dropdown-item" href="{% url 'logout' %}" id="f-custom">Выйти</a>
+                                    </li>
+                                    {% else %}
+                                    <li><a class="dropdown-item" href="{% url 'login' %}" id="f-custom">Войти</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'signup' %}" id="f-custom">Регистрация</a>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <li class="nav-item col">
+                        <button class="points">{{ points }}</button>
+
+                    </li>
+            </div>
+    </nav>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <h3 class="text-center py-4">Катюша</h3>
+                <p>Долго сохранится в памяти нашего народа грозное оружие Великой Отечественной войны – реактивные
+                    установки, известные под именем «Катюша». Первые реактивные установки, в официальных документах
+                    называемые БМ-13, были изготовлены на Воронежском экскаваторном заводе имени Коминтерна. Освоение их
+                    производства было начато на заводе в первые месяцы 1941 года, и 27 июня 1941 года были собраны
+                    первые две реактивные установки. Продолжалось производство «Катюш» в Воронеже до поздней осени,
+                    вплоть до перемещения завода на Урал.</p>
+                <p>В июле 1941 года под Оршей «Катюши» впервые участвовали в боевых действиях. На позиции фашистов
+                    обрушился удар неведомой силы, небо прочертили огненные стрелы. Судьба этой первой батареи
+                    реактивных установок оказалась трагичной. Немцы организовали настоящую охоту за таинственным оружием
+                    такой огромной силы. Батарея попала в окружение врага, боеприпасы были израсходованы, и наши солдаты
+                    взорвали уцелевшие в боях установки, чтобы они не достались фашистам. В музее завода им. Коминтерна
+                    хранятся фрагменты взорванных установок, которые были найдены на месте последнего боя. Заводские
+                    специалисты обнаружили, что эти фрагменты принадлежат «Катюшам», которые были изготовлены именно в
+                    Воронеже.</p>
+                <p>В память о производстве первых серийных образцов «Катюш» одна из них, но без автомобиля, в 1972 году
+                    была установлена на высоком каменном постаменте на территории Воронежского экскаваторного завода им.
+                    Коминтерна (Московский проспект, 11). На открытии памятника присутствовали десятки ветеранов завода,
+                    чьими руками собирались первые «Катюши» в суровом 1941г.</p>
+                <p>Существует несколько версий, почему реактивные установки БМ-13 стали называться «катюшами». По одной
+                    из них, поводом для такого названия послужила буква «К», значившаяся на заводских этикетках,
+                    крепившихся на всей продукции завода им. Коминтерна, в том числе и на минометах. По другой версии,
+                    установка стала именоваться по названию популярной в военное время песни Матвея Блантера на слова
+                    Михаила Исаковского «Катюша».</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

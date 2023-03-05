@@ -1,0 +1,131 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Статьи</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=M+PLUS+Rounded+1c&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alegreya+SC&family=Amatic+SC:wght@700&family=M+PLUS+Rounded+1c&display=swap"
+        rel="stylesheet">
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.js' %}"></script>
+    <link rel="shortcut icon" href="{% static 'img/favicon_io/favicon.ico' %}" type="image/x-icon">
+</head>
+
+<body>
+    <nav class="navbar navbar-top navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand fs-2 ms-15 col-3" id="f1-custom" href="#">Воронеж</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse ms-10 row" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item col">
+                        <a class="nav-link active fs-4" id="f-custom" aria-current="page"
+                            href="{% url 'home' %}">Главная</a>
+                    </li>
+                    <li class="nav-item col">
+                        <a class="nav-link active fs-4" id="f-custom" aria-current="page"
+                            href="{% url 'history1_view' %}">История</a>
+                    </li>
+                    <li class="nav-item col">
+                        <a class="nav-link active fs-4" id="f-custom" aria-current="page"
+                            href="{% url 'articles_view' %}">Статьи</a>
+                    </li>
+
+
+                    <div class="col">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="ak">
+                            <li class="nav-item dropdown">
+                                {% if user.is_authenticated %}
+                                <a class="nav-link dropdown-toggle me-5 fs-4" href="#" id="f-custom navbarDropdown"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ user.username }}
+                                </a>
+                                {% else %}
+                                <a class=" nav-link fs-4 dropdown-toggle" href="#" id="f-custom navbarDropdown"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">Аккаунт</a>
+                                {% endif %}
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    {% if user.is_authenticated %}
+                                    <li>
+                                        <a class="dropdown-item" href="{% url 'logout' %}" id="f-custom">Выйти</a>
+                                    </li>
+                                    {% else %}
+                                    <li><a class="dropdown-item" href="{% url 'login' %}" id="f-custom">Войти</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'signup' %}" id="f-custom">Регистрация</a>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <li class="nav-item col">
+                        <button class="points">{{ points }}</button>
+
+                    </li>
+            </div>
+    </nav>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <h3 class="text-center py-4">Тайна имени Воронеж</h3>
+                <p>Загадочный смысл названия родного города волнует воронежских историков и краеведов уже не один
+                    десяток лет.</p>
+                <p>Может быть, слово «Воронеж» связано с понятием «воронить», т. е. чернить, делать черным? Именно так
+                    рассуждали некоторые краеведы, ссылаясь при этом на древнегреческого историка Геродота (V век до н.
+                    э.), в трудах которого имеется упоминание о меланхленах (по-гречески — «черные плащи»). Жило это
+                    племя севернее Причерноморья — тогдашней колонии греков, а возможно, и на берегах Дона и Воронежа.
+                    Сторонники данной версии указывали также, что в черте города Воронежа имелся Чернавский лес —
+                    чернава, а в округе расположены речки Большая Чернава, Чернь, Чернянка, две Черниговки, впадающие в
+                    Дон и слева, и справа. На территории края есть еще и «черные» села: Чернитва, Черниговка, Черняково.
+                </p>
+                <p>Заметно "зачерненный" ландшафт назвали Воронежем славяне, которые плотно осваивали его, как
+                    утверждает археология, в VIII и IX веках. На крутых мысах они возвели укреплённые городища,
+                    окружённые селениями. Занимались земледелием, скотоводством, ремёслами, охотой и рыбной ловлей. На
+                    Воронеж пришли северяне и вятичи. Учёные относят их к двум археологическим культурам — «роменской» и
+                    «борщёвской».</p>
+                <p>От северян нам достались такие названия, как Усмань, Рамонь, Девица, Снова и Ведуга. Предполагается,
+                    что Воронеж тоже древнее славянское слово. Произошло от «вороной, воронить», то есть, «чёрный,
+                    чернить». В отношении природно-географической области это могло означать «чернолесье», «чёрная
+                    река». Река Воронеж, с её омутами, тихими заводями, поросшими дубом крутыми берегами действительно
+                    кажется чёрной.</p>
+                <p>Для изучения слова "Воронеж" впервые в полном объеме применен комплексный топонимический анализ. На
+                    его основе предложены методы расшифровки других забытых древнеславянских топонимов природного толка
+                    в нескольких регионах Центральной России и Украины (реки Ворона, Воронка и многие другие на
+                    "Ворон-"; "тезки" города Воронежа - город Воронач и поселок Воронеж; реки Трубеж, Усмань (Эсмань) и
+                    озеро Сенеж; Казарские городища, Казарское озеро и реки Казинки - топонимы, однокоренные со словом
+                    "Казань" и др.).</p>
+                <p>В том, что «Воронеж» — слово славянское, связанное с названием птицы ворон, не сомневаются многие
+                    топонимисты. Однако никто не дал достаточно убедительного доказательства этой гипотезе. В. А.
+                    Никонов, также выводивший это название из слов «ворон» и «вороной», особо подчеркнул, что нельзя
+                    игнорировать его вторую часть — «еж» или «неж», так как она встречается во многих древних названиях.
+                </p>
+                <p>Подобные сомнения дают всем, кто хочет раскрыть тайну слова «Воронеж», право и стимул на дальнейшие
+                    поиски. </p>
+                <p>Отдельные ученые склонны считать «Воронеж» не славянским, а иноязычным словом с «затемненным
+                    значением», непонятным в наше время. Топонимист Е. Ф. Данилина в работе «Из наблюдений над
+                    гидронимией Пензенской области» относит названия рек Воронеж и Ворона именно к такой категории.</p>
+                <p>Из работ воронежского краеведа А. В. Кожемякина известно, что мордовские племена, жившие в верховьях
+                    реки Воронеж в незапамятные времена, называли реку «лесной защитой» — «вирьнеже» или «ворьнеже» — от
+                    слова «воронежеть» («лесная защита», «преграда»). Это утверждение положительно оценивает известный
+                    топонимист Э. М. Мурзаев, добавляя, что основа топонима — «вир», «вер» — восходит к общепермскому
+                    «вор», что означает «возвышенность, поросшая лесом».</p>
+                <p>Однако доказать это еще предстоит...</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

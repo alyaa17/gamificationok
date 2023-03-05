@@ -1,0 +1,245 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>История Воронежа</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=M+PLUS+Rounded+1c&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alegreya+SC&family=Amatic+SC:wght@700&family=M+PLUS+Rounded+1c&display=swap"
+        rel="stylesheet">
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.js' %}"></script>
+    <link rel="shortcut icon" href="{% static 'img/favicon_io/favicon.ico' %}" type="image/x-icon">
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-top navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand fs-2 ms-15 col-3" id="f1-custom" href="#">Воронеж</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse ms-10 row" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item col">
+                        <a class="nav-link active fs-4" id="f-custom" aria-current="page"
+                            href="{% url 'home' %}">Главная</a>
+                    </li>
+                    <li class="nav-item col">
+                        <a class="nav-link active fs-4" id="f-custom" aria-current="page"
+                            href="{% url 'history1_view' %}">История</a>
+                    </li>
+                    <li class="nav-item col">
+                        <a class="nav-link active fs-4" id="f-custom" aria-current="page"
+                            href="{% url 'articles_view' %}">Статьи</a>
+                    </li>
+
+
+                    <div class="col">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="ak">
+                            <li class="nav-item dropdown">
+                                {% if user.is_authenticated %}
+                                <a class="nav-link dropdown-toggle me-5 fs-4" href="#" id="f-custom navbarDropdown"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ user.username }}
+                                </a>
+                                {% else %}
+                                <a class=" nav-link fs-4 dropdown-toggle" href="#" id="f-custom navbarDropdown"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">Аккаунт</a>
+                                {% endif %}
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    {% if user.is_authenticated %}
+                                    <li>
+                                        <a class="dropdown-item" href="{% url 'logout' %}" id="f-custom">Выйти</a>
+                                    </li>
+                                    {% else %}
+                                    <li><a class="dropdown-item" href="{% url 'login' %}" id="f-custom">Войти</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'signup' %}" id="f-custom">Регистрация</a>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <li class="nav-item col">
+                        <button class="points">{{ points }}</button>
+
+                    </li>
+                </ul>
+            </div>    
+        </div>
+    </nav>
+
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end">
+            <li class="page-item">
+                <a class="page-link" href="{% url 'history4_view' %}">Предыдущая</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="{% url 'history5_view' %}">5</a></li>
+            <li class="page-item"><a class="page-link" href="{% url 'history6_view' %}">6</a></li>
+            <li class="page-item"><a class="page-link" href="{% url 'history7_view' %}">7</a></li>
+            <li class="page-item">
+                <a class="page-link" href="{% url 'history6_view' %}">Следующая</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <h2 class="text-center">Начало XX века</h2>
+            <p>
+                В 1912 году у станции Отрожка были построены Отрожские железнодорожные мастерские, которые впоследствии
+                стали основой развития Воронежского вагоноремонтного завода.
+                9 июня 1912 г. около 10 часов утра в Царском селе Николаем II был подписан Закон об открытии
+                Воронежского
+                СХИ. Император наложил на документ резолюцию: «Быть по сему». Закон гласил: «Учредить в городе Воронеже
+                сельскохозяйственный институт Императора Петра I с отнесением сего института к числу высших учебных
+                заведений». В честь этого знаменательного события и в связи с празднованием 350-летия со дня рождения
+                российского императора Петра I в главном корпусе у памятника Петру I состоялось памятное мероприятие.
+            </p>
+
+        </div>
+    </div>
+    <div class="container py-4">
+        <div class="card" style="width: 100%">
+            <h5 class="card-title text-center">ВСХИ</h5>
+            <img src="{% static 'img/vshi.jpeg' %}" class="card-img-top" alt="">
+            <div class="card-body">
+
+                <p class="card-text">Воро́нежский госуда́рственный агра́рный университе́т и́мени импера́тора Петра́ I —
+                    университет в городе Воронеже. Второе высшее сельскохозяйственное учебное заведение РФ из двух
+                    старейших, открытых в Российской империи. Первое высшее учебное заведение в городе.</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <p>Основание в 1912 году ВСХИ положило начало осуществлению Плана учреждения в Империи высших
+                сельскохозяйственных школ, одобренного в 1910 году Главным управлением землеустройства и земледелия.
+                Признав
+                целесообразность порайонного распределения высших агрономических школ в России, Сельскохозяйственный
+                Совет
+                Управления счел необходимым учредить сельскохозяйственные институты в Томске, Саратове, Одессе, Казани,
+                Екатеринославле, Перми. Однако открывал этот список Воронеж. Значительным большинством голосов
+                Сельскохозяйственный Совет «избрал Воронеж для немедленного учреждения сельскохозяйственного института,
+                который обслуживал бы по преимуществу Черноземный Центр России». Были высказаны соображения, что
+                «необходимо
+                отдать предпочтения именно Черноземному Центру, столь много давшему Империи, но истощенному частыми
+                неурожаями и особенно нуждающемуся в серьезных улучшениях его сельскохозяйственного строя». Институт
+                создавался как памятник выдающимся делам великого реформатора России – Петра Великого.</p>
+        </div>
+    </div>
+
+    <div class="container justify-content-center px-5">
+        {% if user.is_authenticated %}
+        <form method="post">
+            {% csrf_token %}
+            <p><b>В каком году были построены Отрожские железнодорожные мастерские?</b></p>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" value="В 1910 году." id="В 1910 году." name="question1">
+                <label class="form-check-label" for="В 1910 году.">
+                    В 1910 году.
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" value="В 1912 году." id="В 1912 году." name="question1">
+                <label class="form-check-label" for="В 1912 году.">
+                    В 1912 году.
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" value="В 1901 году." id="В 1901 году." name="question1">
+                <label class="form-check-label" for="В 1901 году.">
+                    В 1901 году.
+                </label>
+            </div>
+
+            <p><b>Где Николаем II был подписан Закон об открытии Воронежского СХИ?</b></p>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" value="В Царском селе." id="В Царском селе."
+                    name="question2">
+                <label class="form-check-label" for="В Царском селе.">
+                    В Царском селе.
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" value="В Москве." id="В Москве." name="question2">
+                <label class="form-check-label" for="В Москве.">
+                    В Москве.
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" value="В Воронеже." id="В Воронеже." name="question2">
+                <label class="form-check-label" for="В Воронеже.">
+                    В Воронеже.
+                </label>
+            </div>
+
+            <p><b>Почему значительным большинством голосов Сельскохозяйственный Совет выбрал Воронеж для немедленного
+                    учреждения сельскохозяйственного института?</b></p>
+            <div class="form-check">
+                <input class="form-check-input" type="radio"
+                    value="Воронеж был наиболее удобным местом для строительства."
+                    id="Воронеж был наиболее удобным местом для строительства." name="question3">
+                <label class="form-check-label" for="Воронеж был наиболее удобным местом для строительства.">
+                    Воронеж был наиболее удобным местом для строительства.
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio"
+                    value="Черноземный Центр России нуждался в улучшениях сельскохозяйственного строя."
+                    id="Черноземный Центр России нуждался в улучшениях сельскохозяйственного строя." name="question3">
+                <label class="form-check-label"
+                    for="Черноземный Центр России нуждался в улучшениях сельскохозяйственного строя.">
+                    Черноземный Центр России нуждался в улучшениях сельскохозяйственного строя.
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" value="Петр I внес большой вклад в развитие Воронежа."
+                    id="Петр I внес большой вклад в развитие Воронежа." name="question3">
+                <label class="form-check-label" for="Петр I внес большой вклад в развитие Воронежа.">
+                    Петр I внес большой вклад в развитие Воронежа.
+                </label>
+            </div>
+
+
+            <button type="submit" class="btn-tsvet my-4 fs-5 px-1">Завершить тест</button>
+        </form>
+        {% else %}
+        <div class="py-2">
+            <a href="{% url 'login' %}">Создайте аккаунт, чтобы получить доступ к тестам</a>
+        </div>
+        
+        {% endif %}
+    </div>
+
+
+
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item">
+                <a class="page-link" href="{% url 'history4_view' %}">Предыдущая</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="{% url 'history5_view' %}">5</a></li>
+            <li class="page-item"><a class="page-link" href="{% url 'history6_view' %}">6</a></li>
+            <li class="page-item"><a class="page-link" href="{% url 'history7_view' %}">7</a></li>
+            <li class="page-item">
+                <a class="page-link" href="{% url 'history6_view' %}">Следующая</a>
+            </li>
+        </ul>
+    </nav>
+</body>
+
+</html>

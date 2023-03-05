@@ -1,0 +1,98 @@
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Статьи</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=M+PLUS+Rounded+1c&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alegreya+SC&family=Amatic+SC:wght@700&family=M+PLUS+Rounded+1c&display=swap"
+        rel="stylesheet">
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.js' %}"></script>
+    <link rel="shortcut icon" href="{% static 'img/favicon_io/favicon.ico' %}" type="image/x-icon">
+</head>
+
+<body>
+    <nav class="navbar navbar-top navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand fs-2 ms-15 col-3" id="f1-custom" href="#">Воронеж</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse ms-10 row" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item col">
+                        <a class="nav-link active fs-4" id="f-custom" aria-current="page"
+                            href="{% url 'home' %}">Главная</a>
+                    </li>
+                    <li class="nav-item col">
+                        <a class="nav-link active fs-4" id="f-custom" aria-current="page"
+                            href="{% url 'history1_view' %}">История</a>
+                    </li>
+                    <li class="nav-item col">
+                        <a class="nav-link active fs-4" id="f-custom" aria-current="page"
+                            href="{% url 'articles_view' %}">Статьи</a>
+                    </li>
+
+
+                    <div class="col">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="ak">
+                            <li class="nav-item dropdown">
+                                {% if user.is_authenticated %}
+                                <a class="nav-link dropdown-toggle me-5 fs-4" href="#" id="f-custom navbarDropdown"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ user.username }}
+                                </a>
+                                {% else %}
+                                <a class=" nav-link fs-4 dropdown-toggle" href="#" id="f-custom navbarDropdown"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">Аккаунт</a>
+                                {% endif %}
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    {% if user.is_authenticated %}
+                                    <li>
+                                        <a class="dropdown-item" href="{% url 'logout' %}" id="f-custom">Выйти</a>
+                                    </li>
+                                    {% else %}
+                                    <li><a class="dropdown-item" href="{% url 'login' %}" id="f-custom">Войти</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'signup' %}" id="f-custom">Регистрация</a>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <li class="nav-item col">
+                        <button class="points">{{ points }}</button>
+
+                    </li>
+            </div>
+    </nav>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <h3 class="text-center py-4">Костёнки</h3>
+            <p>В Хохольском районе, примерно в 50 км от Воронежа, находятся «Костенки» – известный своими древними находками Государственный археологический музей-заповедник. Сооружение, целью которого стала консервация мест стоянок первобытных людей, расположено на территории одноименного села. Примерный возраст найденных в этих местах, а также в соседнем селе Борщево артефактов – более 20 тысяч лет.</p>
+            <p>Костёнки признаются богатейшим в России местом сосредоточения стоянок эпохи верхнего палеолита — людей современного типа. Здесь на территории около 10 км², открыто свыше 60 стоянок (на ряде по несколько жилищ, иногда очень крупных), датируемых от 45 до 15 тыс. лет назад. В связи с огромной площадью заселения исследователи ищут аргументы в пользу признания Костенок одним из древнейших протогородов на планете (с населением 200—300 человек одновременно). Костёнковские стоянки древних содержат жилища из костей мамонта, произведения искусства, в том числе всемирно известные женские статуэтки — так называемые «палеолитические венеры».</p>
+            <p>Исторические документы подтверждают, что первые серьезные научные работы на территории современного музея начались 140 лет назад. Тогда, в 1879 году, антрополог Иван Поляков обнаружил в одном из сельских огородов кости мамонта. Начав раскопки, он открыл первую из самых ценных стоянок верхнего палеолита – «Костенки-1». А с 1922 года изучения древностей в этих местах не прекращались.</p>
+            <p>На одной из первых стоянок археологам удалось найти мотыги, рогатины, кинжалы и обломки наконечников из бивней мамонта, украшения из клыков песца, подвески, диадемы и застежки, элементы керамики. Но самой известной стала коллекция из 150 предметов искусства верхнего палеолита – в первую очередь, женских костяных статуэток. Эти фигурки, созданные в стиле «первобытного реализма», помогли ученым понять многое о людях каменного века. Например, то, что фигура беременной женщины была для них символом продолжения жизни. </p>
+            <p>В дальнейшем на костенковских стоянках археологи находили жилища из костей мамонта, погребальные камеры с останками людей, многочисленные мелкие скульптуры, использовавшиеся древними людьми для счета или игр наподобие шахмат. Под крышей музея сегодня можно увидеть реконструкцию деревни каменного века. На объемном макете, изображающем ландшафт прибрежья Дона, отмечены места всех стоянок, найденных в Костенках, так что посетители могут примерно представить, как были расположены дома в первобытном поселении.</p>
+            <p>Среди археологов в те времена еще не было принято сохранять находки. Поэтому жилища первобытных людей, обнаруженные тогда, не были должным образом описаны и зафиксированы. Изменить эту практику придумал видный советский археолог Александр Рогачев. Именно он решил законсервировать найденное.</p>
+            <p>Первым таким «документом» стали «Костенки 11». В 1949 году ученые нашли костяной пол древнего жилища диаметром 9 м, окруженный ямами – их, по всей видимости, использовали для хранения пищи. Дом отлично сохранился, хотя его возраст составлял порядка 20 тыс. лет. Ученые предположили, что пол из костей, симметрично выложенных по кругу, мог служить фундаментом, в который вставлялись балки, образующие стены дома. Спустя 16 лет прямо над этой стоянкой началось строительство. И сегодня место раскопок занимает центр его экспозиции.</p>
+            <p>В 2001 году на стоянке «Костенки 14» нашли прекрасно сохранившийся скелет молодого мамонта. Рядом с ним не было никаких орудий, а кости животного лежали в правильном анатомическом порядке. Из этого ученые сделали вывод, что зверь умер естественной смертью, без вмешательства человека. Археологи предположили, что мамонт увяз в болоте, придя на водопой. Эта находка стала настоящей сенсацией. В вечной мерзлоте Сибири мамонтов откапывают постоянно, а в середине Русской равнины до тех пор ученые находили лишь отдельные кости этих могучих животных, которые использовали в быту.</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

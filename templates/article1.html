@@ -1,0 +1,112 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Статьи</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=M+PLUS+Rounded+1c&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alegreya+SC&family=Amatic+SC:wght@700&family=M+PLUS+Rounded+1c&display=swap"
+        rel="stylesheet">
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.js' %}"></script>
+    <link rel="shortcut icon" href="{% static 'img/favicon_io/favicon.ico' %}" type="image/x-icon">
+</head>
+
+<body>
+    <nav class="navbar navbar-top navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand fs-2 ms-15 col-3" id="f1-custom" href="#">Воронеж</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse ms-10 row" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item col">
+                        <a class="nav-link active fs-4" id="f-custom" aria-current="page"
+                            href="{% url 'home' %}">Главная</a>
+                    </li>
+                    <li class="nav-item col">
+                        <a class="nav-link active fs-4" id="f-custom" aria-current="page"
+                            href="{% url 'history1_view' %}">История</a>
+                    </li>
+                    <li class="nav-item col">
+                        <a class="nav-link active fs-4" id="f-custom" aria-current="page"
+                            href="{% url 'articles_view' %}">Статьи</a>
+                    </li>
+
+
+                    <div class="col">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="ak">
+                            <li class="nav-item dropdown">
+                                {% if user.is_authenticated %}
+                                <a class="nav-link dropdown-toggle me-5 fs-4" href="#" id="f-custom navbarDropdown"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ user.username }}
+                                </a>
+                                {% else %}
+                                <a class=" nav-link fs-4 dropdown-toggle" href="#" id="f-custom navbarDropdown"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">Аккаунт</a>
+                                {% endif %}
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    {% if user.is_authenticated %}
+                                    <li>
+                                        <a class="dropdown-item" href="{% url 'logout' %}" id="f-custom">Выйти</a>
+                                    </li>
+                                    {% else %}
+                                    <li><a class="dropdown-item" href="{% url 'login' %}" id="f-custom">Войти</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'signup' %}" id="f-custom">Регистрация</a>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <li class="nav-item col">
+                        <button class="points">{{ points }}</button>
+
+                    </li>
+            </div>
+    </nav>
+
+
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <h3 class="text-center py-4">Первые упоминания о Воронеже</h3>
+                <p>Исторические даты имеют большое значение в общественной жизни, позволяя обществу и государству
+                    сохранять историческую память как важную составную часть национальной идентичности. </p>
+                <p>В своё время в воронежских историко-краеведческих кругах проходили оживленные дебаты о дате основания
+                    Воронежа. Спор шел о том, что брать за основу генеалогии – царский ли указ (1585г.) или первое
+                    летописное упоминание (1177 г.). Наиболее горячие головы утверждали, что Воронеж «существовал
+                    всегда», по крайней мере, со скифо-сарматских времен. Местные археологи, исследовавшие остатки
+                    протогородов, расположенных по всему бассейну реки Воронеж, подтвердили древнейшую заселенность этой
+                    территории и преемственность всех сменяющих друг друга культур. Их находки могут составить целую
+                    экспозицию на тему «Воронеж древний», достойную украсить лучшие археологические выставки мира. В
+                    период формирования Древнерусского государства (на рубеже VIII-IX вв.) берега Дона и Воронежа
+                    активно заселялись восточнославянскими племенами. Но на рубеже X-XI веков славянские поселения в
+                    бассейне Дона опустели, что было связано с активизацией набегов кочевников — печенегов, а затем
+                    половцев. Однако полного угасания жизни на реке Воронеж не произошло. </p>
+                <p>Воронеж впервые упоминается в Ипатьевской летописи под 1177 г. как город в составе Рязанского
+                    княжества: 20 февраля 1177 г. в междоусобной битве владимирские войска разгромили рязанскую дружину.
+                    Один из побежденных князей — Ярополк — сбежал. Победители потребовали его выдачи, послав ультиматум
+                    поверженным врагам. Рязанцы, как сообщает Лаврентьевская летопись, «ехавше в Вороножь», схватили
+                    беглеца, скрывавшегося там, и выдали владимирцам. В двух разных списках Ипатьевской летописи, где
+                    тоже упомянуто это событие, имеются разночтения: «ехавше Воронажь» и «ехавше в Вороняжь». Поэтому,
+                    некоторые историки полагают, что город существовал еще в XII столетии. Однако датой основания
+                    Воронежа считается указ о строительстве крепости, то есть 1585 год.</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

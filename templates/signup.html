@@ -1,0 +1,105 @@
+
+
+<head>
+  <meta charset="UTF-8">
+  <title>Аккаунт</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=M+PLUS+Rounded+1c&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Alegreya+SC&family=Amatic+SC:wght@700&family=M+PLUS+Rounded+1c&display=swap"
+    rel="stylesheet">
+  <script src="{% static 'bootstrap/js/bootstrap.bundle.js' %}"></script>
+  <link rel="shortcut icon" href="{% static 'img/favicon_io/favicon.ico' %}" type="image/x-icon">
+</head>
+
+<body>
+  <nav class="navbar navbar-top navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand fs-2 ms-15 col" id="f1-custom" href="#">Воронеж</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse ms-10 row" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item col">
+            <a class="nav-link active fs-4" id="f-custom" aria-current="page" href="{% url 'home' %}">Главная</a>
+          </li>
+          <li class="nav-item col">
+            <a class="nav-link active fs-4" id="f-custom" aria-current="page"
+              href="{% url 'history1_view' %}">История</a>
+          </li>
+          <li class="nav-item col">
+            <a class="nav-link active fs-4" id="f-custom" aria-current="page"
+              href="{% url 'articles_view' %}">Статьи</a>
+          </li>
+          
+
+
+          <div class="col">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="ak">
+              <li class="nav-item dropdown">
+                {% if user.is_authenticated %}
+                <a class="nav-link dropdown-toggle me-5 fs-4" href="#" id="f-custom navbarDropdown" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  {{ user.username }}
+                </a>
+                {% else %}
+                <a class=" nav-link fs-4 dropdown-toggle" href="#" id="f-custom navbarDropdown" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">Аккаунт</a>
+                {% endif %}
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  {% if user.is_authenticated %}
+                  <li>
+                    <a class="dropdown-item" href="{% url 'logout' %}" id="f-custom">Выйти</a>
+                  </li>
+                  {% else %}
+                  <li><a class="dropdown-item" href="{% url 'login' %}" id="f-custom">Войти</a></li>
+                  <li><a class="dropdown-item" href="{% url 'signup' %}" id="f-custom">Регистрация</a></li>
+                  {% endif %}
+                </ul>
+
+              </li>
+            </ul>
+          </div>
+      </div>
+  </nav>
+
+  <section>
+    <div class="form-box">
+        <div class="form-value">
+            <form method="post">
+                {% csrf_token %}
+                <h2 class="h">Регистрация</h2>
+                <div class="inputbox">
+                    <ion-icon name="accessibility-outline"></ion-icon>
+                    <input type="text" name="username" maxlength="150" autofocus="" required="" id="id_username">
+                    <label for="id_username">Имя пользователя</label>
+                </div>
+                <div class="inputbox">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <input type="password" name="password1" autocomplete="new-password" required="" id="id_password1">
+                    <label for="id_password1">Пароль</label>
+                  
+                </div>
+                <div class="inputbox">
+                  <ion-icon name="lock-closed-outline"></ion-icon>
+                  <input type="password" name="password2" autocomplete="new-password" required="" id="id_password2">
+                  <label for="id_password2">Подтвердите пароль</label>
+                </div>
+                <button type="submit" class="b">Зарегистрироваться</button>
+                
+            </form>
+        </div>
+    </div>
+</section>
+
+
+
+</body>
+

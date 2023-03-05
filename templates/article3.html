@@ -1,0 +1,109 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Статьи</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=M+PLUS+Rounded+1c&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alegreya+SC&family=Amatic+SC:wght@700&family=M+PLUS+Rounded+1c&display=swap"
+        rel="stylesheet">
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.js' %}"></script>
+    <link rel="shortcut icon" href="{% static 'img/favicon_io/favicon.ico' %}" type="image/x-icon">
+</head>
+
+<body>
+    <nav class="navbar navbar-top navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand fs-2 ms-15 col-3" id="f1-custom" href="#">Воронеж</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse ms-10 row" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item col">
+                        <a class="nav-link active fs-4" id="f-custom" aria-current="page"
+                            href="{% url 'home' %}">Главная</a>
+                    </li>
+                    <li class="nav-item col">
+                        <a class="nav-link active fs-4" id="f-custom" aria-current="page"
+                            href="{% url 'history1_view' %}">История</a>
+                    </li>
+                    <li class="nav-item col">
+                        <a class="nav-link active fs-4" id="f-custom" aria-current="page"
+                            href="{% url 'articles_view' %}">Статьи</a>
+                    </li>
+
+
+                    <div class="col">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="ak">
+                            <li class="nav-item dropdown">
+                                {% if user.is_authenticated %}
+                                <a class="nav-link dropdown-toggle me-5 fs-4" href="#" id="f-custom navbarDropdown"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ user.username }}
+                                </a>
+                                {% else %}
+                                <a class=" nav-link fs-4 dropdown-toggle" href="#" id="f-custom navbarDropdown"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">Аккаунт</a>
+                                {% endif %}
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    {% if user.is_authenticated %}
+                                    <li>
+                                        <a class="dropdown-item" href="{% url 'logout' %}" id="f-custom">Выйти</a>
+                                    </li>
+                                    {% else %}
+                                    <li><a class="dropdown-item" href="{% url 'login' %}" id="f-custom">Войти</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'signup' %}" id="f-custom">Регистрация</a>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <li class="nav-item col">
+                        <button class="points">{{ points }}</button>
+
+                    </li>
+            </div>
+    </nav>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <h3 class="text-center py-4">Дом Гардениных</h3>
+                <p>Здание в переулке Фабричный, 10, известное как дом Гардениных – самый старый жилой дом города. С ним
+                    связаны предания о чудесном явлении святителя Митрофана. Любители старины до сих пор пытаются
+                    проникнуть в подземные тоннели здания. Дом появился в городе в 1735 г. Первым его хозяином был Потап
+                    Никитич Гарденин — один из самых богатых и обеспеченных людей, живших в Воронеже в первой половине
+                    18 века, владелец суконной мануфактуры. В свое время он также возглавлял воронежский губернский
+                    магистрат. Фамилия Гардениных – одна из самых известных в дореволюционном Воронеже. В 1720 годах
+                    семейство купцов Гардениных стало одной из первых воронежских промышленных династий. Во времена
+                    Петра I Потап Гарденин был владельцем первого каменного дома Воронежа. Однако семейству пришлось
+                    переселиться, когда царь приказал освободить берег реки для строительства флота.</p>
+                <p>Дом Гарденин соорудил для своего семейства, которое владело им до 1820 г., а затем внук купца продал
+                    здание городу. В течение долгого периода времени в нем располагались больница, дом инвалидов,
+                    воспитательный дом и богадельня. Сегодня в старейшем здании Воронежа живут обычные люди.</p>
+                <p>Историки были уверены, что полутораэтажное здание построено в 1735-1746 годах, а соседнее двухэтажное
+                    – в 1760-х. И только в 1980-х версию поставили под сомнение. Краевед Павел Попов, изучив кирпичную
+                    кладку здания и архивные планы города, доказал, что именно дом №10 является самым старым из жилых
+                    домов Воронежа.</p>
+                <p>Дом Гарденина и остальные его постройки именуются в специальной литературе как «Гарденинский
+                    историко-архитектурный комплекс 18 века», считаются образцом застройки Воронежа до 1774 г. и
+                    охраняются государством. Но, несмотря на это, а также на то, что в доме проживают несколько семей,
+                    последняя его реставрация проводилась более 70 лет назад.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

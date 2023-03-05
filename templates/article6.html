@@ -1,0 +1,103 @@
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Статьи</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=M+PLUS+Rounded+1c&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alegreya+SC&family=Amatic+SC:wght@700&family=M+PLUS+Rounded+1c&display=swap"
+        rel="stylesheet">
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.js' %}"></script>
+    <link rel="shortcut icon" href="{% static 'img/favicon_io/favicon.ico' %}" type="image/x-icon">
+</head>
+
+<body>
+    <nav class="navbar navbar-top navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand fs-2 ms-15 col-3" id="f1-custom" href="#">Воронеж</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse ms-10 row" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item col">
+                        <a class="nav-link active fs-4" id="f-custom" aria-current="page"
+                            href="{% url 'home' %}">Главная</a>
+                    </li>
+                    <li class="nav-item col">
+                        <a class="nav-link active fs-4" id="f-custom" aria-current="page"
+                            href="{% url 'history1_view' %}">История</a>
+                    </li>
+                    <li class="nav-item col">
+                        <a class="nav-link active fs-4" id="f-custom" aria-current="page"
+                            href="{% url 'articles_view' %}">Статьи</a>
+                    </li>
+
+
+                    <div class="col">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="ak">
+                            <li class="nav-item dropdown">
+                                {% if user.is_authenticated %}
+                                <a class="nav-link dropdown-toggle me-5 fs-4" href="#" id="f-custom navbarDropdown"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ user.username }}
+                                </a>
+                                {% else %}
+                                <a class=" nav-link fs-4 dropdown-toggle" href="#" id="f-custom navbarDropdown"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">Аккаунт</a>
+                                {% endif %}
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    {% if user.is_authenticated %}
+                                    <li>
+                                        <a class="dropdown-item" href="{% url 'logout' %}" id="f-custom">Выйти</a>
+                                    </li>
+                                    {% else %}
+                                    <li><a class="dropdown-item" href="{% url 'login' %}" id="f-custom">Войти</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'signup' %}" id="f-custom">Регистрация</a>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <li class="nav-item col">
+                        <button class="points">{{ points }}</button>
+
+                    </li>
+            </div>
+    </nav>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <h3 class="text-center py-4">Герб Воронежа</h3>
+            <p>Основой композиции герба города Воронежа является исторический герб города, утверждённый 21 сентября 1781 года, (по старому стилю), подлинное описание которого гласит: «Щитъ раздhленъ надвое: въ золотомъ полh двуглавый орелъ, а въ красномъ полh опрокинутый сосудъ, изъ котораго истекаетъ рhка Воронежъ (Старый гербъ)».</p>
+            <p>Фигуры герба символизируют город и его жителей как тружеников, огромный вклад которых в экономическое, культурное, духовное развитие Воронежской области и страны имеет большое значение.</p>
+            <p>Двуглавый орёл в золотом поле был высочайше пожалован городу Воронежу в знак особых заслуг в становлении и развитии государства российского. В России есть всего лишь несколько городов, удостоенных такой чести. Начиная с 1781 года, кувшин на горе с изливающейся водой постоянно был символом города Воронежа и Воронежской губернии, пережив три Высочайших утверждения в 1781, 1878 и 1881 годах.</p>
+            <p>Орёл в геральдике символизирует власть, мощь, бесстрашие, а также обновление и попечение о подрастающем поколении. Воздетые крылья означают устремлённость в будущее.</p>
+            <p>Кувшин с изливающейся из него водой – уникальный исторический символ Воронежа – отражает богатство и плодородие здешних земель. Впервые кувшин появился именно в гербе 1781 года. Опрокинутый кувшин с изливающейся водой служит традиционным знаком источника, начала, бесконечного плодородия и неисчерпаемой природной силы. В то же время вода, льющаяся из кувшина, традиционно является аллегорическим символом истока, родника и реки – реки Воронеж. Появление кувшина в гербе Воронежа не случайно и имеет глубокий смысл. Кувшин с истекающей из него водой символически указывал на то, что Воронеж стал для России «воротами во все моря», т.к. именно в Воронеже положено настоящее начало российскому флоту. Таким образом, символика воронежского герба глубоко позитивна в своей основе и составляет заслуженную многовековую гордость жителей города.</p>
+            <p>Вместе с тем серебряный кувшин, как творение умелых человеческих рук, аллегорически показывает трудолюбие жителей города.
+                Серебро в геральдике – символ благородства, чистоты, справедливости, великодушия, а также мира.
+                Золото – символ величия, уважения, прочности, интеллекта, а также света и духовности. Вместе с тем, золото символизирует урожай, изобилие и плодородие – аллегорично показывает развитый аграрный сектор экономики города.
+                Красный цвет в геральдике символизирует жизнеутверждающую силу, мужество, праздник, красоту и труд, что дополняет содержание герба города Воронежа, как промышленно развитого центра.
+            </p>
+            <p>Гора в гербе созвучна с крутым правобережьем города Воронежа.</p>
+            <p>Золотая башенная корона о пяти видимых зубцах, дополненная золотым лавровым венком, показывает статус города Воронежа как административного центра субъекта Российской федерации.</p>
+            <p>Щитодержатели – древнерусские витязи-воины – символизируют доблесть, храбрость и героизм, проявленные жителями города на протяжении веков при обороне земель русских. За мужество, стойкость и массовый героизм, проявленные защитниками города в борьбе за свободу и независимость Отечества городу Воронежу присвоено почётное звание «Город воинской славы». Символика щитодержателей многозначна. Они символизируют также и то, что город был основан как крепость, призванная защищать русские земли от набегов кочевых племён. Витязи-воины также символизируют воевод-первостроителей города Воронежа: С.Ф. Сабурова и его последователей В.Г. Биркина и И.Г. Судакова (Мясного).</p>
+            <p>На щите у воина – эмблема, изображённая вся золотом, с полкового знамени воронежского пехотного полка, утверждённая 8 марта 1730 года: «В золотом щите на красном поле, две медные пушки на станках, из которых на одной сидит белый одноглавый орёл; под пушками зелёная земля».</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Статьи</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=M+PLUS+Rounded+1c&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alegreya+SC&family=Amatic+SC:wght@700&family=M+PLUS+Rounded+1c&display=swap"
+        rel="stylesheet">
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.js' %}"></script>
+    <link rel="shortcut icon" href="{% static 'img/favicon_io/favicon.ico' %}" type="image/x-icon">
+</head>
+
+<body>
+    <nav class="navbar navbar-top navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand fs-2 ms-15 col-3" id="f1-custom" href="#">Воронеж</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse ms-10 row" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item col">
+                        <a class="nav-link active fs-4" id="f-custom" aria-current="page"
+                            href="{% url 'home' %}">Главная</a>
+                    </li>
+                    <li class="nav-item col">
+                        <a class="nav-link active fs-4" id="f-custom" aria-current="page"
+                            href="{% url 'history1_view' %}">История</a>
+                    </li>
+                    <li class="nav-item col">
+                        <a class="nav-link active fs-4" id="f-custom" aria-current="page"
+                            href="{% url 'articles_view' %}">Статьи</a>
+                    </li>
+
+
+                    <div class="col">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="ak">
+                            <li class="nav-item dropdown">
+                                {% if user.is_authenticated %}
+                                <a class="nav-link dropdown-toggle me-5 fs-4" href="#" id="f-custom navbarDropdown"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ user.username }}
+                                </a>
+                                {% else %}
+                                <a class=" nav-link fs-4 dropdown-toggle" href="#" id="f-custom navbarDropdown"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">Аккаунт</a>
+                                {% endif %}
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    {% if user.is_authenticated %}
+                                    <li>
+                                        <a class="dropdown-item" href="{% url 'logout' %}" id="f-custom">Выйти</a>
+                                    </li>
+                                    {% else %}
+                                    <li><a class="dropdown-item" href="{% url 'login' %}" id="f-custom">Войти</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'signup' %}" id="f-custom">Регистрация</a>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <li class="nav-item col">
+                        <button class="points">{{ points }}</button>
+
+                    </li>
+            </div>
+    </nav>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <h3 class="text-center py-4">Легенды о Вантите</h3>
+                <p>В Воронеже есть много людей, которые уверены: город гораздо старше своих 426 лет. Краеведы с
+                    удовольствием рассказывают о сарматских святилищах на Дону, о скифских захоронениях и древних
+                    городищах, где люди жили за много тысяч лет до наших дней.</p>
+                <p>Например, есть комплекс древних городищ под названием Вантит («земля вятичей»). По легендам,
+                    давным-давно там жило два особенных племени — ваны и асы, которые, по одним поверьям, были богами,
+                    по другим — людьми, владевшими магией. Никто доподлинно не знает, стоял Вантит на Оке, на Киевщине
+                    или на Дону. Однако жители Воронежа верят, что древний Вантит находился именно на месте их города.
+                    Возможно, там, где сейчас располагается северная окраина Воронежа. Такой вывод сделали некоторые
+                    археологи в XX веке, на основании археологических раскопок, проведённых в Воронежской Нагорной
+                    дубраве. Большое количество памятников древнерусского и более ранних времён сосредоточено на 11 км
+                    вдоль высокого правого берега реки Воронеж. Учёные назвали этот район «микро-регион Вантит».
+                    Существует даже пешеходный маршрут «Экотропа», который по задумке создателей повторяет места
+                    расселения древних племен. Местные жители любят собираться большими компаниями и гулять по этой
+                    тропе.</p>
+                <p>VII–IX века в истории восточных славян отмечаются скудностью письменных источников. Всё, что мы знаем
+                    о таинственном городе Вантит, известно от арабских путешественников, проходивших через юго-восточные
+                    границы «славянского мира». Ибн-Русте: «…И между странами печенегов и славян расстояние в 10 дней
+                    пути. В самом начале пределов славянских находится город, называемый Вантит. Путь в эту страну идёт
+                    по степям и бездорожным землям через ручьи и дремучие леса. Страна славян — ровная и лесистая, и они
+                    в ней живут…». Гардизи: «…И на крайних пределах славянских есть город, называемый Вантит… И страна
+                    славян ровная, изобилует деревьями, и они живут большей частью среди деревьев».</p>
+                <p>Кроме того, Вантит как «страна вятичей» упоминается в письме хазарского кагана Иосифа сановнику
+                    Кордовского халифа Хасдаю ибн Шапруту (X век). И у скандинавского летописца и собирателя саг Снорри
+                    Стурлусона (XIII век).</p>
+                <p>Ценность этого уникального места чрезвычайно высока. В настоящее время известно 34 разновременных
+                    памятника. В их числе комплекс городищ, селений и курганных могильников, относящихся к концу I
+                    тысячелетия. Крупнейшее среди городищ Нагорной дубравы – у Михайловского кордона. Самое укреплённое
+                    – на Белой горе. В числе археологических памятников есть не только древнерусские, но и сарматские,
+                    скифские, раннего железного и бронзового веков. Памятники «микро-региона Вантит» дают огромное
+                    количество информации о жизни наших предков, неразрывно связывают нас с родной землёй. </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

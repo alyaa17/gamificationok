@@ -1,0 +1,205 @@
+{% extends 'base.html' %}
+{% block title %}История Воронежа{% endblock %}
+{% load static %}
+{% block content %}
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-end">
+        <li class="page-item">
+            <a class="page-link" href="{% url 'history7_view' %}">Предыдущая</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="{% url 'history6_view' %}">6</a></li>
+        <li class="page-item"><a class="page-link" href="{% url 'history7_view' %}">7</a></li>
+        <li class="page-item"><a class="page-link" href="{% url 'history8_view' %}">8</a></li>
+        <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Следующая</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="container pt-4">
+    <div class="row">
+        <h2 class="text-center">Современный период</h2>
+        <p>В ноябре 1945 Совнарком СССР принял постановление о восстановлении 15 старейших русских городов, в их числе –
+            Воронеж. В конце 1940-х гг. завершено восстановление промышленных предприятий, к середине 1950-х гг. – жилых
+            и общественных зданий. 01.02.1949 Сов. Мин. РСФСР принял Постановление «О мерах помощи в восстановлении
+            города Воронежа». В 1945-1946 и 1949-1960 Воронеж был центром военного округа. Были открыты новые
+            предприятия машиностроения и электронной промышленности: завод полупроводниковых приборов (1959),
+            станкостроительный завод (1960), завод строительных алюминиевых конструкций (1973), НИИ бытовой видеотехники
+            (1986). В 1972 вступил в строй новый аэропорт, весной того же года заполнено водохранилище, которое является
+            одним из крупнейших в мире, расположенных в черте города. В Воронеже родился маршал артиллерии Г.Ф. Одинцов.
+            Воронеж награжден орденами Отечественной войны 1-й степени (1975), Ленина (1986).</p>
+    </div>
+</div>
+<div class="container py-4">
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    Георгий Федотович Одинцов
+                </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    <p>
+
+                        Советский военачальник, маршал артиллерии (1968), профессор (1962).
+                        7 мая 1970 г. имя Одинцова Георгия Федотовича занесено в Книгу Почёта города
+                        Луги и района. Также имя маршала Г.Ф. Одинцова присвоено улице поселка Отрожки города Воронежа
+                        (постановление горсовета от 9.12.1974 года).
+
+                        Награды: 3 ордена Ленина, 4 ордена Красного Знамени, орден Суворова 1-й степени, орден Кутузова
+                        1-й
+                        степени, орден Богдана Хмельницкого 1-й степени, орден Суворова 2-й степени, медали.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <p>В 1990 году Министерство культуры и Госстрой РСФСР внесли Воронеж в список исторических городов России. В
+            Воронеже начали появляться памятники поэтам и писателям: А. П. Платонову (1999), И. А. Бунину (1995), С. А.
+            Есенину (2006), А. С. Пушкину (1999) и О. Э. Мандельштаму (2008). У строящегося Благовещенского собора был
+            установлен памятник святителю Митрофану Воронежскому (2003).</p>
+    </div>
+</div>
+<div class="container">
+    <div class="row justify-content-around">
+        <div class="card col-12 col-lg-3 mx-3 py-1">
+            <img class="img-fluid" src="{% static 'img/bynin.jpg' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Иван Алексеевич Бунин</h5>
+                <div class="card-text">Русский писатель, поэт и переводчик, лауреат Нобелевской премии по литературе
+                    1933 года.</div>
+            </div>
+        </div>
+        <div class="card col-12 col-lg-3 mx-3 py-1">
+            <img class="img-fluid" src="{% static 'img/platonov.jpg' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Андрей Платонович Платонов</h5>
+                <div class="card-text">Русский советский писатель,
+                    поэт, публицист, драматург, сценарист, журналист, военный корреспондент и инженер. Участник Великой
+                    Отечественной войны.</div>
+            </div>
+        </div>
+        <div class="card col-12 col-lg-3 mx-3 py-1">
+            <img class="img-fluid" src="{% static 'img/esenin.jpg' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Сергей Александрович Есенин</h5>
+                <div class="card-text">Русский поэт и писатель. Одна из крупнейших личностей Серебряного века.</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container py-4">
+    <div class="row">
+        <div class="col-12 col-lg-8">
+            <p>16.02.2008 Указом Президента РФ Воронежу присвоено звание «Город воинской славы». В городе несколько
+                десятков мест, связанных с памятью о военной истории: братские могилы у памятника Славы, в Воронежском
+                центральном парке, руины областной больницы «Ротонда». В 1975 открыт мемориальный комплекс на пл. Победы
+                с могилой Неизвестного солдата и Вечным огнем, в 1985 – мемориал на Чижовском плацдарме. В 1993 из
+                Вильнюса в Воронеж перенесен памятник И.Д. Черняховскому. В 2000 открыт Музей-Диорама, перед входом в
+                который размещены образцы военной техники. Там же в 2007 открыт мемориал, посвященный Героям Советского
+                Союза и Героям России – уроженцам Воронежа, в 2010 установлена памятная стела «Воронеж – город воинской
+                славы». В парке Победы в год 80-летия Воздушно-десантных войск установлен памятник «Воронеж – родина
+                ВДВ».</p>
+        </div>
+        <img class="img-fluid col-6 offset-3 offset-lg-0 col-lg-4 order-lg-first" src="{% static 'img/vslavy.jpg' %}" alt="">
+    </div>
+</div>
+
+
+<div class="container justify-content-center px-5">
+    {% if user.is_authenticated %}
+    <form method="post">
+        {% csrf_token %}
+        <p><b>... Министерство культуры и Госстрой РСФСР внесли Воронеж в список исторических городов России.</b></p>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" value="В 1989 году." id="В 1989 году." name="question1">
+            <label class="form-check-label" for="В 1989 году.">
+                В 1989 году.
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" value="В 1990 году." id="В 1990 году." name="question1">
+            <label class="form-check-label" for="В 1990 году.">
+                В 1990 году.
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" value="В 1999 году." id="В 1999 году." name="question1">
+            <label class="form-check-label" for="В 1999 году.">
+                В 1999 году.
+            </label>
+        </div>
+
+
+        <p><b>Каким писателям есть пямятники в нашем городе?</b></p>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" value="И. А. Бунину, С. А. Есенину, О. Э. Мандельштаму." id="И. А. Бунину, С. А. Есенину, О. Э. Мандельштаму." name="question2">
+            <label class="form-check-label" for="И. А. Бунину, С. А. Есенину, О. Э. Мандельштаму.">
+                И. А. Бунину, С. А. Есенину, О. Э. Мандельштаму.
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" value="Л. Н. Толстому, С. А. Есенину, Ф. М. Достоевскому." id="Л. Н. Толстому, С. А. Есенину, Ф. М. Достоевскому." name="question2">
+            <label class="form-check-label" for="Л. Н. Толстому, С. А. Есенину, Ф. М. Достоевскому.">
+                Л. Н. Толстому, С. А. Есенину, Ф. М. Достоевскому.
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" value="С. А. Есенину, Л. Н. Толстому, И. А. Бунину." id="С. А. Есенину, Л. Н. Толстому, И. А. Бунину." name="question2">
+            <label class="form-check-label" for="С. А. Есенину, Л. Н. Толстому, И. А. Бунину.">
+                С. А. Есенину, Л. Н. Толстому, И. А. Бунину.
+            </label>
+        </div>
+
+
+        <p><b>Когда Воронежу было присвоено звание «Город воинской славы»?</b></p>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" value="16.02.2008" id="16.02.2008" name="question3">
+            <label class="form-check-label" for="16.02.2008">
+                16.02.2008
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" value="21.01.2007" id="21.01.2007" name="question3">
+            <label class="form-check-label" for="21.01.2007">
+                21.01.2007
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" value="24.03.2010" id="24.03.2010" name="question3">
+            <label class="form-check-label" for="24.03.2010">
+                24.03.2010
+            </label>
+        </div>
+        <button type="submit" class="btn-tsvet my-4 fs-5 px-1">Завершить тест</button>
+    </form>
+    {% else %}
+        <div class="py-2">
+            <a href="{% url 'login' %}">Создайте аккаунт, чтобы получить доступ к тестам</a>
+        </div>
+    {% endif %}
+</div>
+
+
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        <li class="page-item">
+            <a class="page-link" href="{% url 'history7_view' %}">Предыдущая</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="{% url 'history6_view' %}">6</a></li>
+        <li class="page-item"><a class="page-link" href="{% url 'history7_view' %}">7</a></li>
+        <li class="page-item"><a class="page-link" href="{% url 'history8_view' %}">8</a></li>
+        <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Следующая</a>
+        </li>
+    </ul>
+</nav>
+{% endblock content %}
