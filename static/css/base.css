@@ -1,0 +1,210 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+:root {
+    --color1: #f3aa2ce6;
+    --color2: #bbb19a73;
+    --color3: #71e717;
+    --color4: #D9D9D9;
+    --color5: #000000;
+    --color6: #ffd683e3;
+
+}
+
+.navbar-top {
+    background-color: var(--color1);
+}
+
+
+#btn-color {
+    background-color: var(--color1);
+    border-color: var(--color3);
+}
+#btn-color:active {
+    background-color: var(--color3);
+}
+
+#clk {
+    color: var(--color3);
+}
+
+
+#f1-custom {
+    font-family: 'Amatic SC', cursive;
+}
+
+#f-custom {
+    font-family: 'Alegreya SC', serif;
+}
+
+.t-al {
+    top: 50%;
+}
+
+.img-c {
+    width: 10px;
+}
+
+p { 
+    text-indent: 40px; 
+}
+
+#accordion-color {
+    background-color: var(--color1);
+}
+
+.img-float {
+    float: right;
+}
+
+#img-custom {
+    width: 14px;
+    height: auto;
+
+    background: var(--color1);
+}
+#card-cust {
+    background: var(--color4); 
+}
+
+#name-ar {
+    background: #ffffff;
+}
+
+#btn-cust {
+    background: #ffffff;
+}
+
+footer {
+    font-family: 'Alegreya SC', serif;
+    background: var(--color1);
+}
+
+a {
+    color: #000000 !important; 
+}
+
+.nav-link {
+    font-family: 'Alegreya SC', serif;
+}
+
+.page-link:active {
+    color: #000000 !important; 
+}
+
+.nav-link:hover {
+    display: block;
+    transform: scale(1.1);
+}
+
+.dropdown-item:active {
+    background-color: #D9D9D9;
+}
+
+.btn-tsvet {
+    background: var(--color4);
+    border-width: 1px;
+}
+
+.points {
+    background-color: var(--color4);
+    color: #000000;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 2px 1px;
+    border-radius: 212px;
+    border-color: #000000;
+    font-family: 'Alegreya SC', serif;
+}
+
+
+
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.form-box {
+    position: relative;
+    width: 400px;
+    height: 450px;
+    background: var(--color1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.h {
+    font-size: 2em;
+    color: #ffffff;
+    text-align: center;
+}
+
+.inputbox {
+    position: relative;
+    margin: 30px;
+    width: 310px;
+    border-bottom: 2px solid #000000;
+}
+
+.inputbox input {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding: 0 35px 0 5px;
+    color: #fff;
+}
+
+.inputbox ion-icon {
+    position: absolute;
+    color: #000000;
+    font-size: 1.2em;
+    top: 10px;
+}
+
+.b {
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    background: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.register {
+    font-size: .9em;
+    color: #000000;
+    text-align: center;
+    margin: 25px 0 10px;
+}
+
+.register p a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: 600;
+}
+
+.register p a:hover {
+    text-decoration: underline;
+}
